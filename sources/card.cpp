@@ -84,7 +84,7 @@ void Card::cardsDeck_52(Card* cardsDeck, int size) //create a deck of 52 card - 
 void Card::deck_shuffle(Card* cardsDeck) //shuffle a deck of cards
 {
     // Seed the random number generator with the current time
-    srand(time(nullptr));
+    srand(time(NULL));
     
     for(int i=0; i<250; i++)
     {
