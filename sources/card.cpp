@@ -8,6 +8,7 @@
 using namespace std;
 using namespace ariel;
 
+//from enum shape to string type
 string Card::shapeToString(Card::Shape shape) {
     switch (shape) {
         case Card::Diamonds:

@@ -9,7 +9,6 @@ using namespace std;
 namespace ariel{
     class Player{
     public:
-        Player(); //defult constructor
         Player(string name); //constructor
 
         int stacksize() const; //return the amount of cards left (size_of_stack_)
@@ -32,7 +31,6 @@ namespace ariel{
         bool getIsPlaying() const; //is this player in a game or not
         void setIsPlaying(bool state); //change if this player in a game or done
 
-        int getID() const; //return the player ID
     private:
         string name_;
         int num_of_win_cards_;
@@ -40,7 +38,5 @@ namespace ariel{
         stack<Card> player_stack_;
         int num_of_win_round_;
         bool isPlaying;
-        int player_id;
-        static int numOfPlayers;
     };
 }

@@ -1,24 +1,10 @@
 #include "player.hpp"
+#include "game.hpp"
 #include <stdexcept> //for exceptions
 
 using namespace std;
 using namespace ariel;
 
-int Player::numOfPlayers =0;
-
-
-Player::Player() //defult constructor
-{
-    this->name_ = "";
-    this->num_of_win_cards_ = 0;
-    this->size_of_stack_ = 0;
-    this->num_of_win_round_ = 0;
-    this->isPlaying = false;
-    this->player_id = numOfPlayers;
-    numOfPlayers++;
-    
-
-}
 
 Player::Player(string name) //constructor
 {
@@ -27,8 +13,6 @@ Player::Player(string name) //constructor
     this->size_of_stack_ = 0;
     this->num_of_win_round_ = 0;
     this->isPlaying = false;
-    this->player_id = numOfPlayers;
-    numOfPlayers++;
     
 }
 
@@ -105,6 +89,7 @@ Card Player::pop_stack()
     {
         Card c = this->player_stack_.top();
         this->player_stack_.pop();
+        subStacksize(1);
         return c;
     }
     throw runtime_error("Player stack is empty"); // throw an exception
@@ -114,6 +99,7 @@ Card Player::pop_stack()
 void Player::push_stack(Card c_to_push)
 {
     this->player_stack_.push(c_to_push);
+    subStacksize(-1);
 }
 
 int Player::getRoundWon() const //return the amount of rounds this player has won (num_of_win_round_)
@@ -155,8 +141,4 @@ bool Player::getIsPlaying() const{ //is this player in a game or not
 void Player::setIsPlaying(bool state) //change if this player in a game or done
 {
     this->isPlaying = state;
-}
-
-int Player::getID() const{ //return the player ID
-    return this->player_id;
 }
